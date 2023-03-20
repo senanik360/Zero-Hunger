@@ -1,0 +1,75 @@
+﻿
+
+
+@{ ViewBag.Title = "Welcome"; }
+
+<center>
+
+
+
+    <table class="table-bordered">
+        <tr>
+            <td>
+                <b> ID </b>
+            </td>
+
+            <td>
+                <b> Restaurant  </b>
+            </td>
+
+            <td>
+                <b> Request </b>
+            </td>
+
+            <td>
+                <b> Deadline </b>
+            </td>
+
+            <td>
+                <b> Collected Y/N </b>
+            </td>
+
+            <td>
+                <b> Delivered Y/N </b>
+            </td>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @item.id
+    </td>
+    <td>
+        @item.Restaurantid
+    </td>
+    <td>
+        @item.Request1
+    </td>
+    <td>
+        @item.deadline
+    </td>
+    <td>
+        @if (@item.isCollected == null)
+        {
+<a href="/Employee/Collected/@item.id">Collect</a> }
+else
+{
+@item.isCollected}
+    </td>
+    <td>
+        @if (@item.isDelivered == null)
+        {
+<a href="/Employee/Delivered/@item.id">Mark as delivered</a> }
+else
+{
+@item.isDelivered}
+
+    </td>
+
+</tr>
+}
+    </table>
+</center>
+

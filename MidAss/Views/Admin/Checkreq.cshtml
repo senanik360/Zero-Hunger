@@ -1,0 +1,58 @@
+﻿
+@{ 
+    ViewBag.Title = "Checkreq"; 
+    
+    }
+<center>
+    <h2>Request Info.</h2>
+    <br />
+    <br />
+    <br />
+
+    <table table="table-bordered" border="1">
+        <tr>
+            <td>
+                Serial
+            </td>
+            <td>
+                Restaurant ID
+            </td>
+            <td>
+                Request
+            </td>
+
+            <td>
+                Deadline
+            </td>
+
+            <td>
+                Assigned_Employee
+            </td>
+
+            <td>
+                Action
+            </td>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+<tr>
+    <td><label name="id" value="@item.id">@item.id</label></td>
+    <td><label name="Restaurantid" value="@item.Restaurantid">@item.Restaurantid</label></td>
+    <td>@item.Request1</td>
+    <td>@item.deadline</td>
+    @if (item.Employeeid != null)
+    {
+<td>@item.Employeeid</td>
+}
+
+    <td>
+        <a href="/Admin/Assignem/@item.id">Assign Employee</a>
+    </td>
+</tr>
+}
+
+
+    </table>
+</center>
